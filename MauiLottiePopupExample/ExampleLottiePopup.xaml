@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup
+    x:Class="MauiLottiePopupExample.ExampleLottiePopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    Size="{OnPlatform WinUI='750,500',
+                      MacCatalyst='750,500',
+                      Android='325,500',
+                      iOS='325,500'}"
+    Color="{AppThemeBinding Dark={StaticResource Gray4},
+                            Light={StaticResource Gray1}}">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <VerticalStackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource Gray4},
+                                                  Light={StaticResource Gray1}}"
+                HorizontalOptions="Fill"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    Margin="10"
+                    FontSize="Default"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="3,2,1,...LIFTOFF!"
+                    VerticalOptions="Fill"
+                    VerticalTextAlignment="Center" />
+
+                <skia:SKLottieView
+                    x:Name="LottieAnimation"
+                    HeightRequest="275"
+                    HorizontalOptions="FillAndExpand"
+                    IsAnimationEnabled="False"
+                    IsVisible="true"
+                    RepeatCount="-1"
+                    Source="{AppThemeBinding Light=rocketloaderlight.json,
+                                             Dark=rocketloaderdark.json}"
+                    VerticalOptions="Fill" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</mct:Popup>
